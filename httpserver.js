@@ -1,9 +1,11 @@
 const http = require('http');
+var fs = require('fs');
 const server = http.createServer(function(req,res){
     if(req.url == '/'){
         res.writeHead(200,{'Content-Type':'json'});
         res.write('Hello world');
-        res.end('Bye');
+        var readstream = fs.createReadStream('readme.txt','utf8');
+        readstream.pipe(res); //http response is a writestream
     }
 
     if(req.url == '/api/v1/catalogue'){
