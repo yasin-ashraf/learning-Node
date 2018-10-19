@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{background-color: skyblue;font-family: verdana;padding: 30px;color: white}
+            h1{font-size: 48px;text-align: center;letter-spacing: 2px;text-transform: uppercase}
+            h3{font-size: 24px;text-align: center;text-transform: capitalize;letter-spacing: 2px}
+            li{font-size: 24px;text-align: center;text-transform: capitalize;letter-spacing: 2px}
+        </style>
+    </head>
+
+    <body>
+        <% include partials/partial.ejs %>
+        <h1>Hi Welcome to the profile of <%=profile%></h1>
+        <h3>Age : <%= info.age %></h3>
+        <h3>Job : <%= info.job %></h3>
+        <h3>Hobbies</h3>
+            <ul>
+                <% info.hobbies.forEach(function(item){ %>
+                    <li><%= item %></li>
+              <%  }); %>
+                
+              <li> <%= rq.hobby %>  </li>
+            </ul>
+    </body>
+</html>
